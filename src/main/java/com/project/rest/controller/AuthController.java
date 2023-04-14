@@ -6,10 +6,7 @@ import com.project.rest.auth.AuthenticationService;
 import com.project.rest.auth.ReqisterRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api")
@@ -29,6 +26,11 @@ public class AuthController {
             @RequestBody AuthenticationRequest request
     ){
         return ResponseEntity.ok(authenticationService.login(request));
+    }
+
+    @GetMapping("/test")
+    public String test1(){
+        return "Nie zabezpieczony endpoint";
     }
 
 }
