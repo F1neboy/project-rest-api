@@ -2,35 +2,22 @@ package com.project.rest.controller;
 
 import com.project.rest.auth.AuthenticationRequest;
 import com.project.rest.auth.AuthenticationResponse;
-import com.project.rest.auth.AuthenticationService;
 import com.project.rest.auth.ReqisterRequest;
-import lombok.RequiredArgsConstructor;
+import com.project.rest.model.User;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.RequestBody;
 
-@RestController
-@RequestMapping("/api")
-@RequiredArgsConstructor
-public class AuthController {
+import java.util.List;
 
-    private final AuthenticationService authenticationService;
 
-    @PostMapping("/register")
-    public ResponseEntity<AuthenticationResponse> register(
-            @RequestBody ReqisterRequest request
-    ){
-        return ResponseEntity.ok(authenticationService.register(request));
-    }
-    @PostMapping("/login")
-    public ResponseEntity<AuthenticationResponse> login(
-            @RequestBody AuthenticationRequest request
-    ){
-        return ResponseEntity.ok(authenticationService.login(request));
-    }
+public interface AuthController {
 
-    @GetMapping("/test")
-    public String test1(){
-        return "Nie zabezpieczony endpoint";
-    }
+    public ResponseEntity<AuthenticationResponse> register (@RequestBody ReqisterRequest request);
+
+    public ResponseEntity<AuthenticationResponse> login(@RequestBody AuthenticationRequest request);
+
+    public String test1();
+
+    public List<User> all();
 
 }

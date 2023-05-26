@@ -1,9 +1,6 @@
 package com.project.rest.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -19,10 +16,21 @@ public class Zadanie {
     @Id
     @GeneratedValue
     private Long id;
-    // forgein key do projekt id
     private String nazwa;
     private Integer kolejnosc;
     private String opis;
-    private Date czas_dodania;
+    private Date czasDodania;
+
+    @ManyToOne
+    @JoinColumn(name="idProjekt")
+    private Projekt projekt;
+
+    @OneToOne
+    @JoinColumn(name="idUserCreate")
+    private User userCreate;
+
+    @OneToOne
+    @JoinColumn(name="idUserDo")
+    private User userDo;
 
 }

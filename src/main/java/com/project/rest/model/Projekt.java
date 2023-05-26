@@ -1,16 +1,12 @@
 package com.project.rest.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.CreationTimestamp;
 
 import java.util.Date;
-import java.util.zip.DataFormatException;
 
 @Entity
 @AllArgsConstructor
@@ -23,7 +19,19 @@ public class Projekt {
     private Long id;
     private String nazwa;
     private String opis;
-    private Date data_utworzenia;
-    private Date data_oddania;
+    @CreationTimestamp
+    private Date dataUtworzenia;
+    private Date dataOddania;
+
+    @ManyToOne
+    @JoinColumn(name="idUser")
+    private User userProject;
+
+    public Projekt(String nazwa, String opis){
+        this.nazwa=nazwa;
+        this.opis=opis;
+        this.userProject=null;
+        this.dataOddania=null;
+    }
 
 }
