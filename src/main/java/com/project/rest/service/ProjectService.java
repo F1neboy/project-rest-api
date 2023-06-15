@@ -18,4 +18,5 @@ public interface ProjectService {
 
     Optional<Projekt> endProject(Long id);
 
+    Optional<Projekt> findProjectById(Long id);
 }

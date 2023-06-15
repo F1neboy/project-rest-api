@@ -63,5 +63,10 @@ public class ProjectServiceImpl implements ProjectService {
         return Optional.of(projektRepo.save(projekt));
     }
 
+    @Override
+    public Optional<Projekt> findProjectById(Long id) {
+        return Optional.of(projektRepo.findProjektById(id));
+    }
+
 
 }

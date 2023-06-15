@@ -40,6 +40,11 @@ public class ProjektControllerImpl implements ProjektController {
         Optional<User> user=userService.findUserByEmail(email);
         return projectService.findProjectsByUser(user);
     }
+    @GetMapping("/project/{id}")
+    @Override
+    public Optional<Projekt> getProjectById(@PathVariable Long id){
+        return projectService.findProjectById(id);
+    }
 
     @GetMapping("/coopProjects")
     @Override

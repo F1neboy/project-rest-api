@@ -4,6 +4,7 @@ import com.project.rest.model.Projekt;
 import com.project.rest.model.ProjektCooperators;
 import com.project.rest.model.User;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
@@ -14,6 +15,9 @@ import java.util.Optional;
 public interface ProjektController {
 
     Optional<List<Projekt>> getCreatedProjects(@RequestHeader("Authorization") String token);
+
+    @GetMapping("/project/{id}")
+    Optional<Projekt> getProjectById(@PathVariable Long id);
 
     Optional<Optional<List<Projekt>>> getCoopProjects(@RequestHeader("Authorization") String token);
 
