@@ -12,4 +12,6 @@ public interface UserService {
     Optional<List<User>> findAllToProject(String token);
 
     User findUserById(Long id);
+
+    User getUserData(String token);
 }

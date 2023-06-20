@@ -26,4 +26,10 @@ public class UserControllerImpl implements UserController {
         return userService.findAllToProject(token);
     }
 
+    @GetMapping("/getUserData")
+    @Override
+    public User getUserData(@RequestHeader("Authorization") String token){
+        return userService.getUserData(token);
+    }
+
 }

@@ -10,4 +10,7 @@ import java.util.Optional;
 public interface UserController {
     @GetMapping("/usersToProject")
     Optional<List<User>> findUsersToProject(@RequestHeader("Authorization") String token);
+
+    @GetMapping("/getUserData")
+    User getUserData(@RequestHeader("Authorization") String token);
 }
