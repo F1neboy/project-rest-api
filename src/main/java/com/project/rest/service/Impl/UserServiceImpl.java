@@ -30,4 +30,8 @@ public class UserServiceImpl implements UserService {
         user=user.stream().filter(m->!m.getEmail().equals(usrEmail)).toList();
         return Optional.of(user);
     }
+    @Override
+    public User findUserById(Long id){
+        return userRepo.findById(id).orElseThrow(() -> new RuntimeException("User nie znaleziony"));
+    }
 }

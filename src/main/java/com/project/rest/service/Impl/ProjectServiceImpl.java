@@ -57,15 +57,15 @@ public class ProjectServiceImpl implements ProjectService {
     }
 
     @Override
-    public Optional<Projekt> endProject(Long id) {
+    public Projekt endProject(Long id) {
         Projekt projekt=projektRepo.findProjektById(id);
         projekt.setDataOddania(new Date());
-        return Optional.of(projektRepo.save(projekt));
+        return projektRepo.save(projekt);
     }
 
     @Override
-    public Optional<Projekt> findProjectById(Long id) {
-        return Optional.of(projektRepo.findProjektById(id));
+    public Projekt findProjectById(Long id) {
+        return projektRepo.findProjektById(id);
     }
 
 

@@ -11,6 +11,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @AllArgsConstructor
 @Service
@@ -27,7 +28,7 @@ public class ProjectCooperatorsServiceImpl implements ProjectCooperatorsService 
     @Override
     public List<User> findUsersByProject(Long id) {
         Projekt projekt=projektRepo.findProjektById(id);
-        List<ProjektCooperators> usersProj=projektCooperatorsRepo.findProjektCooperatorsByProjekt(projekt);
+        List<ProjektCooperators> usersProj=projektCooperatorsRepo.findProjektCooperatorsByProjekt(Optional.ofNullable(projekt));
         List<User> users=usersProj.stream().map(projektCooperators -> projektCooperators.getUser()).toList();
         return users;
     }
@@ -37,7 +38,7 @@ public class ProjectCooperatorsServiceImpl implements ProjectCooperatorsService 
         Projekt projekt=projektRepo.findProjektById(projektCooperators.getProjekt().getId());
         User user=userRepo.findUserById(projektCooperators.getUser().getId());
         projektCooperators.setUser(user);
-        projektCooperators.setProjekt(projekt);
+        projektCooperators.setProjekt(Optional.ofNullable(projekt));
         return projektCooperatorsRepo.save(projektCooperators);
     }
 

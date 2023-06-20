@@ -17,7 +17,7 @@ public interface ProjektController {
     Optional<List<Projekt>> getCreatedProjects(@RequestHeader("Authorization") String token);
 
     @GetMapping("/project/{id}")
-    Optional<Projekt> getProjectById(@PathVariable Long id);
+    Projekt getProjectById(@PathVariable Long id);
 
     Optional<Optional<List<Projekt>>> getCoopProjects(@RequestHeader("Authorization") String token);
 
@@ -25,7 +25,7 @@ public interface ProjektController {
 
     public Optional<List<Projekt>> getAllProjects();
 
-    public Optional<Projekt> endProject(@PathVariable Long id);
+    public Projekt endProject(@PathVariable Long id);
 
     public ResponseEntity<ProjektCooperators> addUserToProject2(@RequestBody ProjektCooperators projektCooperators);
 

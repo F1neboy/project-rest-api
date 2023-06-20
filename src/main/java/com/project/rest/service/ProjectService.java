@@ -16,7 +16,7 @@ public interface ProjectService {
 
     Optional<List<Projekt>> findAllProjects();
 
-    Optional<Projekt> endProject(Long id);
+    Projekt endProject(Long id);
 
-    Optional<Projekt> findProjectById(Long id);
+    Projekt findProjectById(Long id);
 }

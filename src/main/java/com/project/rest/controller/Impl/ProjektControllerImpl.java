@@ -42,7 +42,7 @@ public class ProjektControllerImpl implements ProjektController {
     }
     @GetMapping("/project/{id}")
     @Override
-    public Optional<Projekt> getProjectById(@PathVariable Long id){
+    public Projekt getProjectById(@PathVariable Long id){
         return projectService.findProjectById(id);
     }
 
@@ -65,7 +65,7 @@ public class ProjektControllerImpl implements ProjektController {
 
     @PatchMapping("/endProject/{id}")
     @Override
-    public Optional<Projekt> endProject(@PathVariable Long id){
+    public Projekt endProject(@PathVariable Long id){
         return projectService.endProject(id);
     }
 

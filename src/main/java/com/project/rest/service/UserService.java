@@ -10,4 +10,6 @@ public interface UserService {
     Optional<User> findUserByEmail(String email);
 
     Optional<List<User>> findAllToProject(String token);
+
+    User findUserById(Long id);
 }

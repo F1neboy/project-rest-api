@@ -4,7 +4,10 @@ import com.project.rest.model.Projekt;
 import com.project.rest.model.Zadanie;
 import org.springframework.data.jpa.repository.JpaRepository;
 
+import java.util.List;
+
 public interface ZadanieRepo extends JpaRepository<Zadanie, Long> {
-    Zadanie findZadanieByProjekt(Projekt projekt);
     Zadanie findZadanieById(Long id);
+
+    List<Zadanie> findZadaniesByProjekt(Projekt projekt);
 }
