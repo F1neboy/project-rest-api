@@ -31,7 +31,4 @@ public class ProjektCooperators {
         this.user=user;
         this.projekt=projekt;
     }
-
-    public void setProjekt(Optional<Projekt> projekt) {
-    }
 }

@@ -38,7 +38,7 @@ public class ProjectCooperatorsServiceImpl implements ProjectCooperatorsService 
         Projekt projekt=projektRepo.findProjektById(projektCooperators.getProjekt().getId());
         User user=userRepo.findUserById(projektCooperators.getUser().getId());
         projektCooperators.setUser(user);
-        projektCooperators.setProjekt(Optional.ofNullable(projekt));
+        projektCooperators.setProjekt(projekt);
         return projektCooperatorsRepo.save(projektCooperators);
     }
 
