@@ -11,7 +11,6 @@ import org.springframework.web.socket.config.annotation.WebSocketConfigurer;
 import org.springframework.web.socket.config.annotation.WebSocketHandlerRegistry;
 
 @Configuration
-@Configurable
 @EnableWebSocket
 @CrossOrigin(origins = {"http://localhost:3000"})
 public class WebSocketConfiguration implements WebSocketConfigurer {

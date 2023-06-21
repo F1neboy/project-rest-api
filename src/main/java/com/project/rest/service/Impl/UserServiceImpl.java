@@ -39,7 +39,6 @@ public class UserServiceImpl implements UserService {
     public User getUserData(String token){
         String usrEmail=jwtService.extractEmail(token.substring(7));
         User user = userRepo.findUserByEmail(usrEmail);
-
         //String userData = user.getFirstname()+" "+user.getLastname();
         return user;
 
