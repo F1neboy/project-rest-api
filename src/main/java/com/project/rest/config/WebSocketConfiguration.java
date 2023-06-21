@@ -17,14 +17,10 @@ public class WebSocketConfiguration implements WebSocketConfigurer {
     @Override
     public void registerWebSocketHandlers(WebSocketHandlerRegistry registry) {
         registry.addHandler(getChatWebSocketHandler(), "/chat")
-                .setAllowedOrigins("http://localhost:3000");
-        registry.addHandler(getChatWebSocketHandler(), "/chat2")
-                .setAllowedOrigins("http://localhost:3000")
-                .withSockJS();
+                .setAllowedOriginPatterns("*");
     }
 
     @Bean
     public WebSocketHandler getChatWebSocketHandler(){
-        return new ChatServiceImpl();
-    }
+        return new ChatServiceImpl();}
 }
