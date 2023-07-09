@@ -87,4 +87,22 @@ public class ProjektControllerImpl implements ProjektController {
         return ResponseEntity.ok(projectCooperatorsService.findUsersByProject(id));
     }
 
+    @PutMapping("/projectTitle/{id}")
+    @Override
+    public ResponseEntity<Projekt> editProjektTitle(@PathVariable Long id, @RequestBody Projekt projekt){
+        return ResponseEntity.ok(projectService.editTitle(id, projekt));
+    }
+
+    @PutMapping("/projectDesc/{id}")
+    @Override
+    public ResponseEntity<Projekt> editProjektDesc(@PathVariable Long id, @RequestBody Projekt projekt){
+        return ResponseEntity.ok(projectService.editDesc(id, projekt));
+    }
+
+    @DeleteMapping("/project/{id}")
+    @Override
+    public void deleteProject(@PathVariable Long id){
+        projectService.deleteProject(id);
+    }
+
 }

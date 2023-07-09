@@ -19,4 +19,10 @@ public interface ProjectService {
     Projekt endProject(Long id);
 
     Projekt findProjectById(Long id);
+
+    void deleteProject(Long id);
+
+    Projekt editTitle(Long id, Projekt projekt);
+
+    Projekt editDesc(Long id, Projekt projekt);
 }

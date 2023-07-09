@@ -16,7 +16,6 @@ public interface ProjektController {
 
     Optional<List<Projekt>> getCreatedProjects(@RequestHeader("Authorization") String token);
 
-    @GetMapping("/project/{id}")
     Projekt getProjectById(@PathVariable Long id);
 
     Optional<Optional<List<Projekt>>> getCoopProjects(@RequestHeader("Authorization") String token);
@@ -33,4 +32,9 @@ public interface ProjektController {
 
     public ResponseEntity<List<User>> getProjectCoop(@PathVariable Long id);
 
+    ResponseEntity<Projekt> editProjektTitle(@PathVariable Long id, @RequestBody Projekt projekt);
+
+    ResponseEntity<Projekt> editProjektDesc(@PathVariable Long id, @RequestBody Projekt projekt);
+
+    void deleteProject(@PathVariable Long id);
 }

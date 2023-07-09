@@ -68,6 +68,24 @@ public class ProjectServiceImpl implements ProjectService {
         return projektRepo.findProjektById(id);
     }
 
+    @Override
+    public void deleteProject(Long id) {
+        projektRepo.deleteById(id);
+    }
+
+    @Override
+    public Projekt editTitle(Long id, Projekt projekt) {
+        Projekt projekt1 = projektRepo.getById(id);
+        projekt1.setNazwa(projekt.getNazwa());
+        return projektRepo.save(projekt1);
+    }
+
+    @Override
+    public Projekt editDesc(Long id, Projekt projekt) {
+        Projekt projekt1 = projektRepo.getById(id);
+        projekt1.setOpis(projekt.getOpis());
+        return projektRepo.save(projekt1);
+    }
 
 
 }

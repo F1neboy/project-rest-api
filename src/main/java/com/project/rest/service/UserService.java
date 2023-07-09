@@ -9,7 +9,7 @@ public interface UserService {
 
     Optional<User> findUserByEmail(String email);
 
-    Optional<List<User>> findAllToProject(String token);
+    Optional<List<User>> findAllToProject(String token, Long id);
 
     User findUserById(Long id);
 

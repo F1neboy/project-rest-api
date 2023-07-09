@@ -6,8 +6,6 @@ import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import java.util.Optional;
-
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
