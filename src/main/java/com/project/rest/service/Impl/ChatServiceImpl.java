@@ -1,9 +1,5 @@
-package com.project.rest.controller.Impl;
+package com.project.rest.service.Impl;
 
-import com.project.rest.config.JwtService;
-import com.project.rest.repository.UserRepo;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.socket.CloseStatus;
 import org.springframework.web.socket.TextMessage;

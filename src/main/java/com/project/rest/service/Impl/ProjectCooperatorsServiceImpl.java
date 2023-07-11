@@ -17,13 +17,11 @@ import java.util.Optional;
 @Service
 public class ProjectCooperatorsServiceImpl implements ProjectCooperatorsService {
 
-
     private ProjektCooperatorsRepo projektCooperatorsRepo;
 
     private ProjektRepo projektRepo;
 
     private UserRepo userRepo;
-
 
     @Override
     public List<User> findUsersByProject(Long id) {

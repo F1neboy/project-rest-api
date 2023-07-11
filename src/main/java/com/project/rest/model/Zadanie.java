@@ -40,5 +40,4 @@ public class Zadanie {
     @OneToOne
     @JoinColumn(name="idUserDo", nullable = true)
     private User userDo;
-
 }

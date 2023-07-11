@@ -17,11 +17,9 @@ import java.util.Optional;
 @Service
 public class FileServiceImpl implements FileService {
 
-
     private FileRepo fileRepo;
 
     private ProjektRepo projektRepo;
-
 
     @Override
     public File saveFile(MultipartFile file, Long id) throws IOException {
@@ -41,7 +39,6 @@ public class FileServiceImpl implements FileService {
     @Override
     public List<File> getFiles(Long id) {
         Projekt prj = projektRepo.getById(id);
-        //List<File> abc = ;
         return fileRepo.getByProjekt(prj).stream().toList();
     }
 

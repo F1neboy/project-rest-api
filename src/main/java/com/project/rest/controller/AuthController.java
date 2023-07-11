@@ -18,6 +18,4 @@ public interface AuthController {
 
     public String test1();
 
-    public List<User> all();
-
 }

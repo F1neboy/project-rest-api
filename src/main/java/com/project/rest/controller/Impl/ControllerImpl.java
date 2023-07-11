@@ -4,7 +4,6 @@ import com.project.rest.config.JwtService;
 import com.project.rest.controller.Controller;
 import com.project.rest.repository.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.flyway.FlywayDataSource;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RestController;

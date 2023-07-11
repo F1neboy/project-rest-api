@@ -1,7 +1,6 @@
 package com.project.rest.config;
 
-import com.project.rest.controller.Impl.ChatServiceImpl;
-import org.springframework.beans.factory.annotation.Configurable;
+import com.project.rest.service.Impl.ChatServiceImpl;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.bind.annotation.CrossOrigin;

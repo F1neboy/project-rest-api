@@ -2,19 +2,15 @@ package com.project.rest.service.Impl;
 
 import com.project.rest.config.JwtService;
 import com.project.rest.model.User;
-import com.project.rest.repository.ProjektCooperatorsRepo;
 import com.project.rest.repository.UserRepo;
 import com.project.rest.service.ProjectCooperatorsService;
 import com.project.rest.service.UserService;
 import lombok.AllArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
-
-import static java.util.Optional.ofNullable;
 
 @AllArgsConstructor
 @Service
@@ -35,7 +31,6 @@ public class UserServiceImpl implements UserService {
         String usrEmail=jwtService.extractEmail(token.substring(7));
         List<User> user=userRepo.findAll();
         List<String> usersInProject=projectCooperatorsService.findUsersByProject(id).stream().filter(Objects::nonNull).map(n->n.getEmail()).toList();
-        //System.out.println(usersInProject);
         user=user.stream().filter(m->!m.getEmail().equals(usrEmail)).toList();
         for(String n: usersInProject){
             user=user.stream().filter(m->!m.getEmail().equals(n)).toList();
@@ -51,7 +46,6 @@ public class UserServiceImpl implements UserService {
     public User getUserData(String token){
         String usrEmail=jwtService.extractEmail(token.substring(7));
         User user = userRepo.findUserByEmail(usrEmail);
-        //String userData = user.getFirstname()+" "+user.getLastname();
         return user;
 
     }

@@ -5,14 +5,12 @@ import com.project.rest.auth.AuthenticationResponse;
 import com.project.rest.auth.AuthenticationService;
 import com.project.rest.auth.ReqisterRequest;
 import com.project.rest.controller.AuthController;
-import com.project.rest.model.User;
 import com.project.rest.repository.UserRepo;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
 
 @CrossOrigin(origins = {"http://localhost:3000"})
 @RestController
@@ -47,8 +45,5 @@ public class AuthControllerImpl implements AuthController {
         return "Nie zabezpieczony endpoint";
     }
 
-    @GetMapping("/all")
-    @Override
-    public List<User> all(){ return userRepo.findAll(); }
 
 }
